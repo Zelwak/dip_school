@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- classroom -->
+        <!-- Vue search -->
+        <record id="school_classroom_search_view" model="ir.ui.view">
+            <field name="name">school.classroom.search</field>
+            <field name="model">school.classroom</field>
+            <field name="arch" type="xml">
+                <search string="Classe">
+                	<group>
+                		<field name="name" select="1"/>
+                		<field name="level" select="1"/>
+                	</group>
+                </search>
+            </field>
+        </record>
+        <!-- Vue tree -->
+        <record id="school_classroom_tree_view" model="ir.ui.view">
+            <field name="name">school.classroom.tree</field>
+            <field name="model">school.classroom</field>
+            <field name="arch" type="xml">
+                <tree string="Classe">
+                	<field name="name"/>
+                	<field name="level"/>
+                	<field name="student_num"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Vue form -->
+        <record id="school_classroom_form_view" model="ir.ui.view">
+            <field name="name">school.classroom.form</field>
+            <field name="model">school.classroom</field>
+            <field name="arch" type="xml">
+                <form string="Classe">
+                    <group>
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="teacher_id"/>
+                        <field name="student_ids"/>
+                        <field name="student_num"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="school_classroom_tree_action" model="ir.actions.act_window">
+            <field name="name">Classe</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.classroom</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>

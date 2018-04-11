@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- schedule -->
+        <!-- Vue search -->
+        <record id="school_schedule_search_view" model="ir.ui.view">
+            <field name="name">school.schedule.search</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <search string="Agenda">
+                	<group>
+                		<field name="name" select="1"/>
+                		<field name="room" select="1"/>
+                		<field name="classroom_id" select="1"/>
+                		<field name="course_id" select="1"/>
+                	</group>
+                </search>
+            </field>
+        </record>
+        <!-- Vue tree -->
+        <record id="school_schedule_tree_view" model="ir.ui.view">
+            <field name="name">school.schedule.tree</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <tree string="Agenda">
+                	<field name="name"/>
+                	<field name="room"/>
+                	<field name="classroom_id"/>
+                	<field name="course_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Vue form -->
+        <record id="school_schedule_form_view" model="ir.ui.view">
+            <field name="name">school.schedule.form</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Agenda">
+                    <group>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                        <field name="room"/>
+                        <field name="classroom_id"/>
+                        <field name="course_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="school_schedule_tree_action" model="ir.actions.act_window">
+            <field name="name">Agenda</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.schedule</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>

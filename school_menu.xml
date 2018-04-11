@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- Top menu Lycée -->
+        <menuitem groups="group_school_member" id="menu_school_school_root" name="Lycée" sequence="10"/>
+
+			<menuitem id="menu_school_config" parent="menu_school_school_root" sequence="10" name="Configuration"/>
+
+				<menuitem id="menu_school_student" parent="menu_school_config" action="school_student_tree_action" sequence="10" name="Elèves"/>
+				<menuitem id="menu_school_teacher" parent="menu_school_config" action="school_teacher_tree_action" sequence="20" name="Professeurs"/>
+				<menuitem id="menu_school_schedule" parent="menu_school_config" action="school_schedule_tree_action" sequence="30" name="Agendas"/>
+				<menuitem id="menu_school_course" parent="menu_school_config" action="school_course_tree_action" sequence="40" name="Cours"/>
+				<menuitem id="menu_school_classroom" parent="menu_school_config" action="school_classroom_tree_action" sequence="50" name="Classes"/>
+        <!-- menu (ne pas effacer cette ligne) -->
+    </data>
+</openerp>

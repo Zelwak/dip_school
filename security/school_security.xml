@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+	    <record model="ir.module.category" id="module_category_school">
+	        <field name="name">Spécifique school</field>
+	        <field name="sequence">16</field>
+	    </record>
+	    <record id="group_school_guest" model="res.groups">
+	        <field name="name">Invité school</field>
+	        <field name="comment">L'utilisateur a un accès limité aux données school</field>
+	        <field name="category_id" ref="module_category_school"/>
+	    </record>
+	    <record id="group_school_member" model="res.groups">
+	        <field name="name">Employé school</field>
+	        <field name="comment">L'utilisateur a accès à certaines données school</field>
+	        <field name="category_id" ref="module_category_school"/>
+	        <field name="implied_ids" eval="[(4, ref('group_school_guest')),(4, ref('base.group_user'))]"/>
+	    </record>
+	    <record id="group_school_admin" model="res.groups">
+	        <field name="name">Admin school</field>
+	        <field name="comment">L'utilisateur a accès à toutes les données et au paramétrage school</field>
+	        <field name="category_id" ref="module_category_school"/>
+	        <field name="implied_ids" eval="[(4, ref('group_school_member')),(4, ref('group_school_guest')),(4, ref('base.group_user'))]"/>
+	        <!-- Note AM : un permanent school EST aussi un employé (et lui-seul) : conséquence, les autres n'autont pas le menu "suivi d'activité"  -->
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	    </record>
+	</data>
+	<data noupdate="0">
+	    <!-- Rôle spécifique pour cacher certains menus facilement dans l'interface et les repérer ensuite si besoin en interface,
+	    grace à ce rôle spécial, qui en fait n'est JAMAIS mis sur les utilisateurs school (caché de la vue spécifique User, où les droits sont choisis) -->
+	    <record id="group_school_hide" model="res.groups">
+	        <field name="name">school hiding feature</field>
+	    </record>
+	</data>
+</openerp>

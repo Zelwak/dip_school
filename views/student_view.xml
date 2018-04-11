@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- student -->
+        <!-- Vue search -->
+        <record id="school_student_search_view" model="ir.ui.view">
+            <field name="name">school.student.search</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <search string="Elève">
+                	<group>
+                		<field name="display_name" select="1" />
+                		<field name="birthdate" select="1" />
+                		<field name="classroom_id" select="1" />
+                	</group>
+                </search>
+            </field>
+        </record>
+        <!-- Vue tree -->
+        <record id="school_student_tree_view" model="ir.ui.view">
+            <field name="name">school.student.tree</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <tree string="Elève">
+                	<field name="display_name" />
+                	<field name="age" />
+                	<field name="classroom_id" />
+                </tree>
+            </field>
+        </record>
+        <!-- Vue form -->
+        <record id="school_student_form_view" model="ir.ui.view">
+            <field name="name">school.student.form</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <form string="Elève">
+                    <group>
+                        <field name="firstname" />
+                        <field name="lastname" />
+                    </group>
+                    <group>
+                        <field name="birthdate" />
+                        <field name="age" />
+                        <field name="classroom_id" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="school_student_tree_action" model="ir.actions.act_window">
+            <field name="name">Elève</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.student</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>

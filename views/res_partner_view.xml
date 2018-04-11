@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <!-- res_partner -->
+        <!-- Vue tree -->
+        <record id="school_teacher_tree_view" model="ir.ui.view">
+            <field name="name">school.teacher.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree" />
+            <field name="arch" type="xml">
+                <field name="display_name" position="after">
+                    <field name="classroom_id" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Vue form -->
+        <record id="school_teacher_form_view" model="ir.ui.view">
+            <field name="name">school.teacher.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="classroom_id" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="school_teacher_tree_action" model="ir.actions.act_window">
+            <field name="name">Professeurs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>
